@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>PROJEKT</title>
+	<meta charset="utf-8" />
+
+    <script src="libs/three.js"></script>
+    <script src="libs/ColladaLoader.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+    <link href="style.css" rel="stylesheet" />
+
+    <script src="js/main.js"></script>
+    <script src="js/poleBoiska.js"></script>
+    <script src="js/boisko.js"></script>
+    <script src="js/banda.js"></script>
+    <script src="js/bramka.js"></script>
+    <script src="js/pilka.js"></script>
+    <script src="js/linie.js"></script>
+    <script src="js/UI.js"></script>
+
+    <script>
+        var client = io();
+        var login;
+        var passwd;
+        var myTab = [];
+        var ui;
+        window.addEventListener("load", function () {
+            client.on("onconnect", function (data) {
+                console.log("Connect ID - " + data.clientName);
+            })
+            ui = new UI();
+        });
+    </script>
+</head>
+<body>
+    <div id="log">
+        <center>
+            <div id="response"></div>
+            <div id="box">
+                <span class="sp">Login : </span>
+                <input type="text" id="login" value="admin" />
+                <br />
+                <span class="sp">Hasło : </span>
+                <input type="password" id="pass" value="admin" />
+                <br />
+            </div>
+
+            <button type="submit" value="Zaloguj" id="bt3">Zaloguj</button>
+            <button type="submit" value="Rejstracja" id="bt4">Rejstracja</button>
+
+        </center>
+    </div>
+    <div id="div"></div>
+</body>
+</html>
